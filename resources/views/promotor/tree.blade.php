@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 
-@section('dashobard_title', 'Promoter Password Change')
+@section('dashobard_title', 'Promoter Sponsor Tree')
 @section('admin_content')
 <style>
     /*Now the CSS*/
@@ -209,31 +209,137 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-8">
+                <div class="col-12">
                     <div class="tf-tree example">
                         <ul>
                             <li>
-                                <span class="tf-nc">1</span>
+                                <span class="tf-nc">
+                                  @if($node_1_user_id > 0)
+                                    <b>{{ $node_1_user_id }}</b>
+                                    <div>BC: {{ $node_1_bc }}</div>
+                                  @else
+                                      +
+                                  @endif
+                                </span>
                                 <ul>
                                     <li>
-                                        <span class="tf-nc">2</span>
+                                        <span class="tf-nc">
+                                          @if($node_11_user_id > 0)
+                                            <b>{{ $node_11_user_id }}</b>
+                                          @else
+                                              +
+                                          @endif
+                                        </span>
                                         <ul>
-                                            <li><span class="tf-nc">4</span></li>
                                             <li>
-                                                <span class="tf-nc">5</span>
+                                              <span class="tf-nc">
+                                                @if($node_111_user_id > 0)
+                                                  <b>{{ $node_111_user_id }}</b>
+                                                @else
+                                                    +
+                                                @endif
+                                              </span>
                                                 <ul>
-                                                    <li><span class="tf-nc">9</span></li>
-                                                    <li><span class="tf-nc">10</span></li>
+                                                    <li><span class="tf-nc">
+                                                      @if($node_1111_user_id > 0)
+                                                        <b>{{ $node_1111_user_id }}</b>
+                                                      @else
+                                                          +
+                                                      @endif
+                                                    </span></li>
+                                                    <li><span class="tf-nc">
+                                                      @if($node_1112_user_id > 0)
+                                                        <b>{{ $node_1112_user_id }}</b>
+                                                      @else
+                                                          +
+                                                      @endif
+                                                    </span></li>
                                                 </ul>
                                             </li>
-                                            <li><span class="tf-nc">6</span></li>
+                                            <li>
+                                                <span class="tf-nc">
+                                                  @if($node_112_user_id > 0)
+                                                    <b>{{ $node_112_user_id }}</b>
+                                                  @else
+                                                      +
+                                                  @endif
+                                                </span>
+                                                <ul>
+                                                    <li><span class="tf-nc">
+                                                      @if($node_1121_user_id > 0)
+                                                        <b>{{ $node_1121_user_id }}</b>
+                                                      @else
+                                                          +
+                                                      @endif
+                                                    </span></li>
+                                                    <li><span class="tf-nc">
+                                                      @if($node_1122_user_id > 0)
+                                                        <b>{{ $node_1122_user_id }}</b>
+                                                      @else
+                                                          +
+                                                      @endif
+                                                    </span></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <span class="tf-nc">3</span>
+                                        <span class="tf-nc">
+                                          @if($node_12_user_id > 0)
+                                            <b>{{ $node_12_user_id }}</b>
+                                          @else
+                                              +
+                                          @endif
+                                        </span>
                                         <ul>
-                                            <li><span class="tf-nc">7</span></li>
-                                            <li><span class="tf-nc">8</span></li>
+                                            <li><span class="tf-nc">
+                                              @if($node_121_user_id > 0)
+                                                <b>{{ $node_121_user_id }}</b>
+                                              @else
+                                                  +
+                                              @endif
+                                            </span>
+                                                <ul>
+                                                    <li><span class="tf-nc">
+                                                      @if($node_1211_user_id > 0)
+                                                        <b>{{ $node_1211_user_id }}</b>
+                                                      @else
+                                                          +
+                                                      @endif
+                                                    </span></li>
+                                                    <li><span class="tf-nc">
+                                                      @if($node_1212_user_id > 0)
+                                                        <b>{{ $node_1212_user_id }}</b>
+                                                      @else
+                                                          +
+                                                      @endif
+                                                    </span></li>
+                                                </ul>
+                                            </li>
+                                            <li><span class="tf-nc">
+                                                @if($node_122_user_id > 0)
+                                                  <b>{{ $node_122_user_id }}</b>
+                                                @else
+                                                    +
+                                                @endif
+                                              </span>
+                                                <ul>
+                                                    <li><span class="tf-nc">
+                                                      @if($node_1221_user_id > 0)
+                                                        <b>{{ $node_1221_user_id }}</b>
+                                                      @else
+                                                          +
+                                                      @endif
+                                                    </span></li>
+                                                    <li><span class="tf-nc">
+                                                      @if($node_1222_user_id > 0)
+                                                        <b>{{ $node_1222_user_id }}</b>
+                                                      @else
+                                                          +
+                                                      @endif
+                                                    </span></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
