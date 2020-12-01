@@ -64,7 +64,7 @@ Route::post('/update/password','Promotor\ProfileManagementController@updatePassw
 Route::get('/change/transaction','Promotor\ProfileManagementController@changeTransaction')->name('change.transaction');
 
 //-------FARHAN ASIF-----------//
-Route::get('/promotor/tree','Promotor\TreeController@index')->name('promotor.tree');
+Route::get('/promotor/tree/{id?}','Promotor\TreeController@index')->name('promotor.tree');
 
 
 //Product Purchase

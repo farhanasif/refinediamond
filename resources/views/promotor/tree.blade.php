@@ -215,8 +215,11 @@
                             <li>
                                 <span class="tf-nc">
                                   @if($node_1_user_id > 0)
-                                    <b>{{ $node_1_user_id }}</b>
-                                    <div>BC: {{ $node_1_bc }}</div>
+                                    <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
+                                    
+                                        <b>{{ $node_1_user_id }}</b><br/>
+                                        <b>BC {{ $node_1_bc }}</b>
                                   @else
                                       +
                                   @endif
@@ -225,6 +228,8 @@
                                     <li>
                                         <span class="tf-nc">
                                           @if($node_11_user_id > 0)
+                                          <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                             <b>{{ $node_11_user_id }}</b>
                                           @else
                                               +
@@ -234,6 +239,8 @@
                                             <li>
                                               <span class="tf-nc">
                                                 @if($node_111_user_id > 0)
+                                                <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                                   <b>{{ $node_111_user_id }}</b>
                                                 @else
                                                     +
@@ -242,6 +249,8 @@
                                                 <ul>
                                                     <li><span class="tf-nc">
                                                       @if($node_1111_user_id > 0)
+                                                      <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                                         <b>{{ $node_1111_user_id }}</b>
                                                       @else
                                                           +
@@ -249,6 +258,8 @@
                                                     </span></li>
                                                     <li><span class="tf-nc">
                                                       @if($node_1112_user_id > 0)
+                                                      <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                                         <b>{{ $node_1112_user_id }}</b>
                                                       @else
                                                           +
@@ -259,6 +270,8 @@
                                             <li>
                                                 <span class="tf-nc">
                                                   @if($node_112_user_id > 0)
+                                                  <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                                     <b>{{ $node_112_user_id }}</b>
                                                   @else
                                                       +
@@ -267,6 +280,8 @@
                                                 <ul>
                                                     <li><span class="tf-nc">
                                                       @if($node_1121_user_id > 0)
+                                                      <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                                         <b>{{ $node_1121_user_id }}</b>
                                                       @else
                                                           +
@@ -274,6 +289,8 @@
                                                     </span></li>
                                                     <li><span class="tf-nc">
                                                       @if($node_1122_user_id > 0)
+                                                      <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                                         <b>{{ $node_1122_user_id }}</b>
                                                       @else
                                                           +
@@ -286,6 +303,8 @@
                                     <li>
                                         <span class="tf-nc">
                                           @if($node_12_user_id > 0)
+                                          <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                             <b>{{ $node_12_user_id }}</b>
                                           @else
                                               +
@@ -294,6 +313,8 @@
                                         <ul>
                                             <li><span class="tf-nc">
                                               @if($node_121_user_id > 0)
+                                              <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                                 <b>{{ $node_121_user_id }}</b>
                                               @else
                                                   +
@@ -302,6 +323,8 @@
                                                 <ul>
                                                     <li><span class="tf-nc">
                                                       @if($node_1211_user_id > 0)
+                                                      <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                                         <b>{{ $node_1211_user_id }}</b>
                                                       @else
                                                           +
@@ -309,6 +332,8 @@
                                                     </span></li>
                                                     <li><span class="tf-nc">
                                                       @if($node_1212_user_id > 0)
+                                                      <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                                         <b>{{ $node_1212_user_id }}</b>
                                                       @else
                                                           +
@@ -318,6 +343,8 @@
                                             </li>
                                             <li><span class="tf-nc">
                                                 @if($node_122_user_id > 0)
+                                                <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                                   <b>{{ $node_122_user_id }}</b>
                                                 @else
                                                     +
@@ -326,6 +353,8 @@
                                                 <ul>
                                                     <li><span class="tf-nc">
                                                       @if($node_1221_user_id > 0)
+                                                      <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                                         <b>{{ $node_1221_user_id }}</b>
                                                       @else
                                                           +
@@ -333,6 +362,8 @@
                                                     </span></li>
                                                     <li><span class="tf-nc">
                                                       @if($node_1222_user_id > 0)
+                                                      <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"><br/>
                                                         <b>{{ $node_1222_user_id }}</b>
                                                       @else
                                                           +

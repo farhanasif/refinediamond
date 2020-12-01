@@ -13,8 +13,8 @@ use App\SponsorTree;
 class TreeController extends Controller
 {
     //promoter tree
-    public function index(){
-        $id = Auth::user()->id;
+    public function index($id){
+        $auth_id = Auth::user()->id;
         $node_1_user_id = 0;
         $node_1_bc = 0;
         
@@ -62,8 +62,11 @@ class TreeController extends Controller
 
         if($id){
             //return $id;
-            $id = 1;
+            //$id = 1;
             //get left right of root
+
+            ////// need to check if ID exists/////////
+
             $root = SponsorTree::where('user_id', $id)
                 ->where('bc', 1)
                 ->first();
