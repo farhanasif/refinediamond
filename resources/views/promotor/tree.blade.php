@@ -2,159 +2,32 @@
 
 @section('dashobard_title', 'Promoter Sponsor Tree')
 @section('admin_content')
+
+<link href="{{asset('css/treeflex.css')}}" rel="stylesheet">
 <style>
-    /*Now the CSS*/
-    * {
-        margin: 0;
-        padding: 0;
-    }
+  /* make the nodes round and change their background-color */
 
-    .tree ul {
-        padding-top: 20px;
-        position: relative;
+  .tf-custom .tf-nc {
+    background-color: darkorange;
+    border-color: darkorange;
+    border-radius: 5%;
+    align-items: center;
+    justify-content: center;
+  }
 
-        transition: all 0.5s;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-    }
+  /* make the horizontal and vertical connectors thick and change their color */
 
-    .tree li {
-        float: left;
-        text-align: center;
-        list-style-type: none;
-        position: relative;
-        padding: 20px 5px 0 5px;
+  .tf-custom .tf-nc:before,
+  .tf-custom .tf-nc:after {
+    border-left-color: darkorange;
+    border-left-width: 2px;
+  }
 
-        transition: all 0.5s;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-    }
-
-    /*We will use ::before and ::after to draw the connectors*/
-
-    .tree li::before,
-    .tree li::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 50%;
-        border-top: 1px solid #ccc;
-        width: 50%;
-        height: 20px;
-    }
-
-    .tree li::after {
-        right: auto;
-        left: 50%;
-        border-left: 1px solid #ccc;
-    }
-
-    /*We need to remove left-right connectors from elements without 
-    any siblings*/
-    .tree li:only-child::after,
-    .tree li:only-child::before {
-        display: none;
-    }
-
-    /*Remove space from the top of single children*/
-    .tree li:only-child {
-        padding-top: 0;
-    }
-
-    /*Remove left connector from first child and 
-    right connector from last child*/
-    .tree li:first-child::before,
-    .tree li:last-child::after {
-        border: 0 none;
-    }
-
-    /*Adding back the vertical connector to the last nodes*/
-    .tree li:last-child::before {
-        border-right: 1px solid #ccc;
-        border-radius: 0 5px 0 0;
-        -webkit-border-radius: 0 5px 0 0;
-        -moz-border-radius: 0 5px 0 0;
-    }
-
-    .tree li:first-child::after {
-        border-radius: 5px 0 0 0;
-        -webkit-border-radius: 5px 0 0 0;
-        -moz-border-radius: 5px 0 0 0;
-    }
-
-    /*Time to add downward connectors from parents*/
-    .tree ul ul::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        border-left: 1px solid #ccc;
-        width: 0;
-        height: 20px;
-    }
-
-    .tree li a {
-        border: 1px solid #ccc;
-        padding: 5px 10px;
-        text-decoration: none;
-        color: #666;
-        font-family: arial, verdana, tahoma;
-        font-size: 11px;
-        display: inline-block;
-
-        border-radius: 5px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-
-        transition: all 0.5s;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-    }
-
-    /*Time for some hover effects*/
-    /*We will apply the hover effect the the lineage of the element also*/
-    .tree li a:hover,
-    .tree li a:hover+ul li a {
-        background: #c8e4f8;
-        color: #000;
-        border: 1px solid #94a0b4;
-    }
-
-    /*Connector styles on hover*/
-    .tree li a:hover+ul li::after,
-    .tree li a:hover+ul li::before,
-    .tree li a:hover+ul::before,
-    .tree li a:hover+ul ul::before {
-        border-color: #94a0b4;
-    }
-
-    .tooltip {
-        position: relative;
-        display: inline-block;
-        font-size: 16px;
-    }
-
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        background-color: black;
-        color: #fff;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 6px;
-        position: absolute;
-        z-index: 1;
-        top: 100%;
-        left: 50%;
-        margin-left: -60px;
-        font-size: 12px;
-    }
-
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-    }
-
+  .tf-custom li li:before {
+    border-top-color: darkorange;
+    border-top-width: 2px;
+  }
 </style>
-<link href="https://unpkg.com/treeflex/dist/css/treeflex.css" rel="stylesheet">
 @if(Session::has('success') || Session::has('failed') || Session::has('error'))
 <section class="content">
     <div class="col-md-8 offset-2 mt-2">
@@ -210,15 +83,15 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
-                    <div class="tf-tree example">
+                    <div class="tf-tree tf-custom">
                         <ul>
                             <li>
-                                <span class="tf-nc">
+                                <span class="tf-nc elevation-3">
                                   @if($node_1_user_id > 0)
                                     <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
                                     
-                                        <b>{{ $node_1_user_id }}</b><br/>
+                                        <b>{{ $node_1_mobile }}</b><br/>
                                         <b>BC {{ $node_1_bc }}</b>
                                   @else
                                       +
@@ -226,7 +99,7 @@
                                 </span>
                                 <ul>
                                     <li>
-                                        <span class="tf-nc">
+                                        <span class="tf-nc elevation-3">
                                           @if($node_11_user_id > 0)
                                           <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -237,7 +110,7 @@
                                         </span>
                                         <ul>
                                             <li>
-                                              <span class="tf-nc">
+                                              <span class="tf-nc  elevation-3">
                                                 @if($node_111_user_id > 0)
                                                 <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -247,7 +120,7 @@
                                                 @endif
                                               </span>
                                                 <ul>
-                                                    <li><span class="tf-nc">
+                                                    <li><span class="tf-nc elevation-3">
                                                       @if($node_1111_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -256,7 +129,7 @@
                                                           +
                                                       @endif
                                                     </span></li>
-                                                    <li><span class="tf-nc">
+                                                    <li><span class="tf-nc elevation-3">
                                                       @if($node_1112_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -268,7 +141,7 @@
                                                 </ul>
                                             </li>
                                             <li>
-                                                <span class="tf-nc">
+                                                <span class="tf-nc elevation-3">
                                                   @if($node_112_user_id > 0)
                                                   <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -278,7 +151,7 @@
                                                   @endif
                                                 </span>
                                                 <ul>
-                                                    <li><span class="tf-nc">
+                                                    <li><span class="tf-nc elevation-3">
                                                       @if($node_1121_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -287,7 +160,7 @@
                                                           +
                                                       @endif
                                                     </span></li>
-                                                    <li><span class="tf-nc">
+                                                    <li><span class="tf-nc elevation-3">
                                                       @if($node_1122_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -301,7 +174,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <span class="tf-nc">
+                                        <span class="tf-nc elevation-3">
                                           @if($node_12_user_id > 0)
                                           <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -311,7 +184,7 @@
                                           @endif
                                         </span>
                                         <ul>
-                                            <li><span class="tf-nc">
+                                            <li><span class="tf-nc elevation-3">
                                               @if($node_121_user_id > 0)
                                               <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -321,7 +194,7 @@
                                               @endif
                                             </span>
                                                 <ul>
-                                                    <li><span class="tf-nc">
+                                                    <li><span class="tf-nc elevation-3">
                                                       @if($node_1211_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -330,7 +203,7 @@
                                                           +
                                                       @endif
                                                     </span></li>
-                                                    <li><span class="tf-nc">
+                                                    <li><span class="tf-nc elevation-3">
                                                       @if($node_1212_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -341,7 +214,7 @@
                                                     </span></li>
                                                 </ul>
                                             </li>
-                                            <li><span class="tf-nc">
+                                            <li><span class="tf-nc elevation-3">
                                                 @if($node_122_user_id > 0)
                                                 <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -351,7 +224,7 @@
                                                 @endif
                                               </span>
                                                 <ul>
-                                                    <li><span class="tf-nc">
+                                                    <li><span class="tf-nc elevation-3">
                                                       @if($node_1221_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
@@ -360,7 +233,7 @@
                                                           +
                                                       @endif
                                                     </span></li>
-                                                    <li><span class="tf-nc">
+                                                    <li><span class="tf-nc elevation-3">
                                                       @if($node_1222_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>

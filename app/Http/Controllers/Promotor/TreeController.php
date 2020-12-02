@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\SponsorTree;
+use DB;
 
 class TreeController extends Controller
 {
@@ -17,48 +18,63 @@ class TreeController extends Controller
         $auth_id = Auth::user()->id;
         $node_1_user_id = 0;
         $node_1_bc = 0;
+        $node_1_mobile = 0;
         
         $node_11_user_id = 0;
         $node_11_bc = 0;
+        $node_11_mobile = 0;
 
         $node_111_user_id = 0;
         $node_111_bc = 0;
+        $node_111_mobile = 0;
 
         $node_112_user_id = 0;
         $node_112_bc = 0;
+        $node_112_mobile = 0;
 
         $node_1111_user_id = 0;
         $node_1111_bc = 0;
+        $node_1111_mobile = 0;
 
         $node_1112_user_id = 0;
         $node_1112_bc = 0;
+        $node_1112_mobile = 0;
 
         $node_1121_user_id = 0;
         $node_1121_bc = 0;
+        $node_1121_mobile = 0;
 
         $node_1122_user_id = 0;
         $node_1122_bc = 0;
+        $node_1122_mobile = 0;
         
         $node_12_user_id = 0;
         $node_12_bc = 0;
+        $node_12_mobile = 0;
 
         $node_121_user_id = 0;
         $node_121_bc = 0;
+        $node_121_mobile = 0;
 
         $node_122_user_id = 0;
         $node_122_bc = 0;
+        $node_122_mobile = 0;
 
         $node_1211_user_id = 0;
         $node_1211_bc = 0;
+        $node_1211_mobile = 0;
 
         $node_1212_user_id = 0;
         $node_1212_bc = 0;
+        $node_1212_mobile = 0;
 
         $node_1221_user_id = 0;
         $node_1221_bc = 0;
+        $node_1221_mobile = 0;
 
         $node_1222_user_id = 0;
         $node_1222_bc = 0;
+        $node_1222_mobile = 0;
 
         if($id){
             //return $id;
@@ -67,12 +83,24 @@ class TreeController extends Controller
 
             ////// need to check if ID exists/////////
 
-            $root = SponsorTree::where('user_id', $id)
-                ->where('bc', 1)
+            // $root = SponsorTree::where('user_id', $id)
+            //     ->where('bc', 1)
+            //     ->first();
+            //DB::connection()->enableQueryLog();
+            $root = DB::table('sponsor_tree as st')
+                ->join('users as u', 'u.id','=', 'st.user_id')
+                ->select('st.*','u.*')
+                ->where('st.user_id', $id)
+                ->where('st.bc', 1)
                 ->first();
+            
+            //$queries = DB::getQueryLog();
+
+            //dd($root);
             
             $node_1_user_id = $root->user_id;
             $node_1_bc = $root->bc;
+            $node_1_mobile = $root->mobile;
 
 
 
@@ -88,6 +116,7 @@ class TreeController extends Controller
                 $root_left = $this->getTreeDetails($tree_left);
                 $node_11_user_id = $root_left->user_id;
                 $node_11_bc = $root_left->bc;
+                $node_11_mobile = $root_left->mobile;
 
                 //dd($root_left);
                 $tree_11_left = $root_left->left;
@@ -102,6 +131,7 @@ class TreeController extends Controller
                     
                     $node_111_user_id = $root_left->user_id;
                     $node_111_bc = $root_left->bc;
+                    $node_111_mobile = $root_left->mobile;
 
 
                     $tree_111_left = $root_left->left;
@@ -113,6 +143,7 @@ class TreeController extends Controller
                         $root_left = $this->getTreeDetails($tree_111_left);
                         $node_1111_user_id = $root_left->user_id;
                         $node_1111_bc = $root_left->bc;
+                        $node_1111_mobile = $root_left->mobile;
                     }
                     
                     if($tree_111_right == 0){}
@@ -121,6 +152,7 @@ class TreeController extends Controller
                         $root_left = $this->getTreeDetails($tree_111_right);
                         $node_1112_user_id = $root_left->user_id;
                         $node_1112_bc = $root_left->bc;
+                        $node_1112_mobile = $root_left->mobile;
                     }
                 }
 
@@ -130,6 +162,7 @@ class TreeController extends Controller
                     $root_right = $this->getTreeDetails($tree_11_right);
                     $node_112_user_id = $root_right->user_id;
                     $node_112_bc = $root_right->bc;
+                    $node_112_mobile = $root_right->mobile;
                     //dd($root_right);
 
                     $tree_112_left = $root_right->left;
@@ -141,6 +174,7 @@ class TreeController extends Controller
                         $root_left = $this->getTreeDetails($tree_111_left);
                         $node_1121_user_id = $root_left->user_id;
                         $node_1121_bc = $root_left->bc;
+                        $node_1121_mobile = $root_left->mobile;
                     }
                     
                     if($tree_112_right == 0){}
@@ -149,6 +183,7 @@ class TreeController extends Controller
                         $root_left = $this->getTreeDetails($tree_112_right);
                         $node_1122_user_id = $root_left->user_id;
                         $node_1122_bc = $root_left->bc;
+                        $node_1122_mobile = $root_left->mobile;
                     }
 
                 }
@@ -160,6 +195,7 @@ class TreeController extends Controller
                 $root_right = $this->getTreeDetails($tree_right);
                 $node_12_user_id = $root_right->user_id;
                 $node_12_bc = $root_right->bc;
+                $node_12_mobile = $root_right->bc;
                 //dd($root_right);
                 $tree_12_left = $root_right->left;
                 $tree_12_right = $root_right->right;
@@ -172,6 +208,7 @@ class TreeController extends Controller
                     
                     $node_121_user_id = $root_left->user_id;
                     $node_121_bc = $root_left->bc;
+                    $node_121_mobile = $root_left->mobile;
 
 
                     $tree_121_left = $root_left->left;
@@ -183,6 +220,7 @@ class TreeController extends Controller
                         $root_left = $this->getTreeDetails($tree_121_left);
                         $node_1211_user_id = $root_left->user_id;
                         $node_1211_bc = $root_left->bc;
+                        $node_1211_mobile = $root_left->mobile;
                     }
                     
                     if($tree_121_right == 0){}
@@ -191,6 +229,7 @@ class TreeController extends Controller
                         $root_left = $this->getTreeDetails($tree_121_right);
                         $node_1212_user_id = $root_left->user_id;
                         $node_1212_bc = $root_left->bc;
+                        $node_1212_mobile = $root_left->mobile;
                     }
                 }
 
@@ -200,6 +239,7 @@ class TreeController extends Controller
                     $root_right = $this->getTreeDetails($tree_12_right);
                     $node_122_user_id = $root_right->user_id;
                     $node_122_bc = $root_right->bc;
+                    $node_122_mobile = $root_right->mobile;
                     //dd($root_right);
 
                     $tree_122_left = $root_right->left;
@@ -211,6 +251,7 @@ class TreeController extends Controller
                         $root_left = $this->getTreeDetails($tree_122_left);
                         $node_1221_user_id = $root_left->user_id;
                         $node_1221_bc = $root_left->bc;
+                        $node_1221_mobile = $root_left->mobile;
                     }
                     
                     if($tree_122_right == 0){}
@@ -219,6 +260,7 @@ class TreeController extends Controller
                         $root_left = $this->getTreeDetails($tree_122_right);
                         $node_1222_user_id = $root_left->user_id;
                         $node_1222_bc = $root_left->bc;
+                        $node_1222_mobile = $root_left->mobile;
                     }
 
                 }
@@ -231,56 +273,76 @@ class TreeController extends Controller
         return view('promotor.tree', [
             'node_1_user_id' => $node_1_user_id,
             'node_1_bc' => $node_1_bc,
+            'node_1_mobile' => $node_1_mobile,
         
             'node_11_user_id' => $node_11_user_id,
             'node_11_bc' => $node_11_bc,
+            'node_11_mobile' => $node_11_mobile,
 
             'node_111_user_id' => $node_111_user_id,
             'node_111_bc' => $node_111_bc,
+            'node_111_mobile' => $node_111_mobile,
 
             'node_112_user_id' => $node_112_user_id,
             'node_112_bc' => $node_112_bc,
+            'node_112_mobile' => $node_112_mobile,
 
             'node_1111_user_id' => $node_1111_user_id,
             'node_1111_bc' => $node_1111_bc,
+            'node_1111_mobile' => $node_1111_mobile,
 
             'node_1112_user_id' => $node_1112_user_id,
             'node_1112_bc' => $node_1112_bc,
+            'node_1112_mobile' => $node_1112_mobile,
 
             'node_1121_user_id' => $node_1121_user_id,
             'node_1121_bc' => $node_1121_bc,
+            'node_1121_mobile' => $node_1121_mobile,
 
             'node_1122_user_id' => $node_1122_user_id,
             'node_1122_bc' => $node_1122_bc,
             
             'node_12_user_id' => $node_12_user_id,
             'node_12_bc' => $node_12_bc,
+            'node_12_mobile' => $node_12_mobile,
 
             'node_121_user_id' => $node_121_user_id,
             'node_121_bc' => $node_121_bc,
+            'node_121_mobile' => $node_121_mobile,
 
             'node_122_user_id' => $node_122_user_id,
             'node_122_bc' => $node_122_bc,
+            'node_122_mobile' => $node_122_mobile,
 
             'node_1211_user_id' => $node_1211_user_id,
             'node_1211_bc' => $node_1211_bc,
+            'node_1211_mobile' => $node_1211_mobile,
 
             'node_1212_user_id' => $node_1212_user_id,
             'node_1212_bc' => $node_1212_bc,
+            'node_1212_mobile' => $node_1212_mobile,
 
             'node_1221_user_id' => $node_1221_user_id,
             'node_1221_bc' => $node_1221_bc,
+            'node_1221_mobile' => $node_1221_mobile,
 
             'node_1222_user_id' => $node_1222_user_id,
-            'node_1222_bc' => $node_1222_bc  
+            'node_1222_bc' => $node_1222_bc,
+            'node_1222_mobile' => $node_1222_mobile 
         ]);
        
     }
 
     public function getTreeDetails($tree_id){
-        $root = SponsorTree::where('id', $tree_id)
-                ->first();
+        // $root = SponsorTree::where('id', $tree_id)
+        //         ->first();
 
+        $root = DB::table('sponsor_tree as st')
+                ->join('users as u', 'u.id','=', 'st.user_id')
+                ->select('st.*','u.*')
+                ->where('st.id', $tree_id)
+                ->first();
+        //dd($root);
         return $root;
     }
 
