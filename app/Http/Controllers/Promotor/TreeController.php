@@ -14,7 +14,7 @@ use DB;
 class TreeController extends Controller
 {
     //promoter tree
-    public function index($id){
+    public function index($id = 1){
         $auth_id = Auth::user()->id;
         $node_1_user_id = 0;
         $node_1_bc = 0;
@@ -76,6 +76,10 @@ class TreeController extends Controller
         $node_1222_bc = 0;
         $node_1222_mobile = 0;
 
+        if(!isset($id) || $id == ''){
+            $id =1;
+        }
+
         if($id){
             //return $id;
             //$id = 1;
@@ -87,6 +91,7 @@ class TreeController extends Controller
             //     ->where('bc', 1)
             //     ->first();
             //DB::connection()->enableQueryLog();
+            
             $root = DB::table('sponsor_tree as st')
                 ->join('users as u', 'u.id','=', 'st.user_id')
                 ->select('st.*','u.*')
@@ -344,6 +349,24 @@ class TreeController extends Controller
                 ->first();
         //dd($root);
         return $root;
+    }
+
+    public function entry($id){
+        //get sponsor tree id
+        $auth_id = Auth::user()->id;
+        
+        $root = SponsorTree::where('user_id', $auth_id)
+                ->where('bc', 1)
+                ->first();
+
+        //dd($root);
+        $sponsor_id = $root->id;
+
+        return view('promotor.promoterEntry', ['id' => $id, 'sponsor_id' => $sponsor_id]);
+    }
+
+    public function savePromoter(){
+        
     }
 
     

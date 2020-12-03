@@ -8,8 +8,8 @@
   /* make the nodes round and change their background-color */
 
   .tf-custom .tf-nc {
-    background-color: darkorange;
-    border-color: darkorange;
+    background-color: gold;
+    border-color: gold;
     border-radius: 5%;
     align-items: center;
     justify-content: center;
@@ -19,12 +19,12 @@
 
   .tf-custom .tf-nc:before,
   .tf-custom .tf-nc:after {
-    border-left-color: darkorange;
+    border-left-color: gold;
     border-left-width: 2px;
   }
 
   .tf-custom li li:before {
-    border-top-color: darkorange;
+    border-top-color: gold;
     border-top-width: 2px;
   }
 </style>

@@ -65,6 +65,7 @@ Route::get('/change/transaction','Promotor\ProfileManagementController@changeTra
 
 //-------FARHAN ASIF-----------//
 Route::get('/promotor/tree/{id?}','Promotor\TreeController@index')->name('promotor.tree');
+Route::get('/promotor/entry/{id}','Promotor\TreeController@entry')->name('promotor.entry');
 
 
 //Product Purchase
