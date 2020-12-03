@@ -200,7 +200,7 @@ class TreeController extends Controller
                 $root_right = $this->getTreeDetails($tree_right);
                 $node_12_user_id = $root_right->user_id;
                 $node_12_bc = $root_right->bc;
-                $node_12_mobile = $root_right->bc;
+                $node_12_mobile = $root_right->mobile;
                 //dd($root_right);
                 $tree_12_left = $root_right->left;
                 $tree_12_right = $root_right->right;
@@ -366,7 +366,78 @@ class TreeController extends Controller
     }
 
     public function savePromoter(){
+        $sponsor_id = $_GET['sponsor_id'];
+        $placement = $_GET['placement'];
+        $position = $_GET['position'];
+        $package = $_GET['package'];
+        $product = $_GET['product'];
+        $full_name = $_GET['full_name'];
+        $mobile = $_GET['mobile'];
+        $password = $_GET['password'];
+        $trans_password = $_GET['trans_password'];
+        $bc = 0;
+
+        //check if mobile already exists, then another cb
+        $id = 0;
+        $users = DB::table('users')->where('mobile', $mobile)->first();
+        if($users){
+            $id = $users->id;
+            //claculate bc
+            $sp_users = DB::table('sponsor_tree')->where('user_id', $id)->count();
+            
+            if($sp_users < 1){
+                $bc = 1;
+            }
+            else{
+                $bc = $sp_users + 1;
+            }
+        }
+        else{
+            //create user
+            $password = Hash::make($password);
+            $email = "mail1_".rand(1000,1000)."@gmail.com";
+            $id = DB::table('users')->insertGetId(
+                [
+                    'email' => $email,
+                    'name' => $full_name, 
+                    'password' => $password,  
+                    'role' => 'promoter',
+                    'mobile' => $mobile
+                ]
+            );
+            $bc = 1;
+        }
         
+        //create package list
+
+        //placement
+        //save sponsor tree
+        $sponsor_tree_id = DB::table('sponsor_tree')->insertGetId(
+            [
+                'user_id' => $id,
+                'parent' => $placement, 
+                'left' => 0,  
+                'right' => 0,
+                'sponsor_id' => $sponsor_id,
+                'bc' => $bc
+            ]
+        );
+
+        if($position == 'L'){
+            DB::table('sponsor_tree')
+            ->where('id', $placement)
+            ->update(['left' => $sponsor_tree_id]);
+        }
+        else{
+            DB::table('sponsor_tree')
+            ->where('id', $placement)
+            ->update(['right' => $sponsor_tree_id]);
+        }
+
+
+
+
+        return 'Created Successfully';
     }
 
     

@@ -63,10 +63,10 @@ Route::post('/update/password','Promotor\ProfileManagementController@updatePassw
     ->name('update.password');
 Route::get('/change/transaction','Promotor\ProfileManagementController@changeTransaction')->name('change.transaction');
 
-//-------FARHAN ASIF-----------//
+//////////-------FARHAN ASIF-----------///////////
 Route::get('/promotor/tree/{id?}','Promotor\TreeController@index')->name('promotor.tree');
 Route::get('/promotor/entry/{id}','Promotor\TreeController@entry')->name('promotor.entry');
-
+Route::get('promotor/savepromoter', 'Promotor\TreeController@savePromoter')->name('promotor.save');
 
 //Product Purchase
 Route::get('/product/purchase','Promotor\PurchaseController@productPurchase')->name('product.purchase');

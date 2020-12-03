@@ -103,7 +103,8 @@
                                           @if($node_11_user_id > 0)
                                           <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                            <b>{{ $node_11_user_id }}</b>
+                                          <b>{{ $node_11_mobile }}</b><br/>
+                                          <b>BC {{ $node_11_bc }}</b>
                                           @else
                                               +
                                           @endif
@@ -114,7 +115,8 @@
                                                 @if($node_111_user_id > 0)
                                                 <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                                  <b>{{ $node_111_user_id }}</b>
+                                                <b>{{ $node_111_mobile }}</b><br/>
+                                                <b>BC {{ $node_111_bc }}</b>
                                                 @else
                                                     +
                                                 @endif
@@ -124,7 +126,8 @@
                                                       @if($node_1111_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                                        <b>{{ $node_1111_user_id }}</b>
+                                                        <b>{{ $node_1111_mobile }}</b><br/>
+                                                        <b>BC {{ $node_1111_bc }}</b>
                                                       @else
                                                           +
                                                       @endif
@@ -133,7 +136,8 @@
                                                       @if($node_1112_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                                        <b>{{ $node_1112_user_id }}</b>
+                                                      <b>{{ $node_1112_mobile }}</b><br/>
+                                                      <b>BC {{ $node_1112_bc }}</b>
                                                       @else
                                                           +
                                                       @endif
@@ -145,7 +149,8 @@
                                                   @if($node_112_user_id > 0)
                                                   <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                                    <b>{{ $node_112_user_id }}</b>
+                                                  <b>{{ $node_112_mobile }}</b><br/>
+                                                  <b>BC {{ $node_112_bc }}</b>
                                                   @else
                                                       +
                                                   @endif
@@ -155,7 +160,8 @@
                                                       @if($node_1121_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                                        <b>{{ $node_1121_user_id }}</b>
+                       <b>{{ $node_1121_mobile }}</b><br/>
+                                          <b>BC {{ $node_1121_bc }}</b>
                                                       @else
                                                           +
                                                       @endif
@@ -164,7 +170,8 @@
                                                       @if($node_1122_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                                        <b>{{ $node_1122_user_id }}</b>
+                    <b>{{ $node_1122_mobile }}</b><br/>
+                                          <b>BC {{ $node_1122_bc }}</b>
                                                       @else
                                                           +
                                                       @endif
@@ -178,7 +185,9 @@
                                           @if($node_12_user_id > 0)
                                           <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                            <b>{{ $node_12_user_id }}</b>
+                    
+                    <b>{{ $node_12_mobile }}</b><br/>
+                                              <b>BC {{ $node_12_bc }}</b>
                                           @else
                                               +
                                           @endif
@@ -188,7 +197,8 @@
                                               @if($node_121_user_id > 0)
                                               <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                                <b>{{ $node_121_user_id }}</b>
+                                              <b>{{ $node_121_mobile }}</b><br/>
+                                              <b>BC {{ $node_121_bc }}</b>
                                               @else
                                                   +
                                               @endif
@@ -198,7 +208,8 @@
                                                       @if($node_1211_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                                        <b>{{ $node_1211_user_id }}</b>
+                    <b>{{ $node_1211_mobile }}</b><br/>
+                                              <b>BC {{ $node_1211_bc }}</b>
                                                       @else
                                                           +
                                                       @endif
@@ -207,7 +218,8 @@
                                                       @if($node_1212_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                                        <b>{{ $node_1212_user_id }}</b>
+                    <b>{{ $node_1212_mobile }}</b><br/>
+                                              <b>BC {{ $node_1212_bc }}</b>
                                                       @else
                                                           +
                                                       @endif
@@ -218,7 +230,8 @@
                                                 @if($node_122_user_id > 0)
                                                 <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                                  <b>{{ $node_122_user_id }}</b>
+                    <b>{{ $node_122_mobile }}</b><br/>
+                                              <b>BC {{ $node_122_bc }}</b>
                                                 @else
                                                     +
                                                 @endif
@@ -228,7 +241,8 @@
                                                       @if($node_1221_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                                        <b>{{ $node_1221_user_id }}</b>
+                    <b>{{ $node_1221_mobile }}</b><br/>
+                                              <b>BC {{ $node_1221_bc }}</b>
                                                       @else
                                                           +
                                                       @endif
@@ -237,7 +251,8 @@
                                                       @if($node_1222_user_id > 0)
                                                       <img src="{{asset('images/person-icon.png')}}" alt="User Image" class="brand-image img-circle elevation-3"
                     style="opacity: .8"><br/>
-                                                        <b>{{ $node_1222_user_id }}</b>
+                    <b>{{ $node_122_mobile }}</b><br/>
+                                              <b>BC {{ $node_122_bc }}</b>
                                                       @else
                                                           +
                                                       @endif
